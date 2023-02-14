@@ -1,0 +1,15 @@
+.troll-face {
+    width: 31.3px;
+    height: 26px;
+}
+
+.title-name {
+    font-size: 21px;
+    color: white;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}

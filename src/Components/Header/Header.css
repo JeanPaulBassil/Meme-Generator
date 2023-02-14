@@ -1,0 +1,7 @@
+.header {
+    background-image: linear-gradient(#6A2283, #6C2386);
+    width: 550px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,20 @@
+* {
+    font-family: 'Karla', sans-serif;
+}
+
+.inline {
+    display: inline;
+}
+
+.block-center{
+    display: block;
+    margin: auto;
+}
+
+.white {
+    color: white;
+}
+
+body{
+    background-color: #e5e5e5;
+}
