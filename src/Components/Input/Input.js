@@ -11,26 +11,27 @@ export default function Input() {
         bottomText: "",
         img: "https://i.imgflip.com/1bij.jpg"
     }); 
-    
+
+    console.log(currentMeme);
     const [allMemeImages, setAllMemeImages] = React.useState(data.data.memes);
-    function logRandMeme(){
-        const randMeme = allMemeImages[Math.floor(Math.random() * allMemeImages.length)];
-        console.log(randMeme.url);
+
+    function logRandMeme(event){
+        const {name, value, type} = event.target;
         setCurrentMeme(prevCurrentMeme => {
+            const randMemeURL = allMemeImages[Math.floor(Math.random() * allMemeImages.length)]
             return {
                 ...prevCurrentMeme,
-                img: randMeme.url
+                [name] : type === 'submit' ? randMemeURL.url : value
             }
         });
-        console.log(currentMeme.img);
     }
     
     return (
         <div className='input'>
-            <input placeholder='Top Text'/>
-            <input placeholder='Bottom Text'/>
-            <div className='btn' onClick={logRandMeme}>
-                <Button />
+            <input type="text" value={currentMeme.topText} name="topText" placeholder='Top Text' onChange={logRandMeme}/>
+            <input type="text" value={currentMeme.bottomText} name="bottomText" placeholder='Bottom Text' onChange={logRandMeme}/>
+            <div className='btn' >
+                <Button handleClick={logRandMeme}/>
             </div>
             <img className="meme" src={currentMeme.img}/>
         </div>

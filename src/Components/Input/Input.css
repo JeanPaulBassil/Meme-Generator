@@ -24,7 +24,7 @@ input::placeholder{
     justify-content: center;
 }
 
-.btn:hover {
+button:hover {
     cursor: pointer;
 }
 
