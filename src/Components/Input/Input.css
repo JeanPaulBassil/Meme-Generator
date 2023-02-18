@@ -6,6 +6,13 @@ input {
     border-radius: 5px;
 }
 
+.output {
+    position: relative;
+    overflow: hidden;
+    width: 495px;
+    left: 2%;
+}
+
 input::placeholder{
     padding-left: .5rem;
     font-size: 16px;
@@ -29,5 +36,32 @@ button:hover {
 }
 
 .meme {
-    width: 495px;
+    width: 100%;
+    /* position: inherit; */
+    position: relative;
+}
+
+.topText {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-52%);
+    text-align: center;
+    width: 100%;
+}
+.bottomText {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-52%);
+    text-align: center;
+    width: 100%;
+}
+
+.imgtext {
+    color: white;
+    -webkit-text-stroke: 1px black;
+    font-size: 32px;
+    font-weight: bolder;
+    margin: 10px;
 }

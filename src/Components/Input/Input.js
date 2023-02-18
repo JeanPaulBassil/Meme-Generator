@@ -25,7 +25,7 @@ export default function Input() {
             }
         });
     }
-    
+
     return (
         <div className='input'>
             <input type="text" value={currentMeme.topText} name="topText" placeholder='Top Text' onChange={logRandMeme}/>
@@ -33,7 +33,11 @@ export default function Input() {
             <div className='btn' >
                 <Button handleClick={logRandMeme}/>
             </div>
-            <img className="meme" src={currentMeme.img}/>
+            <div className='output'>
+                <img className="meme" src={currentMeme.img}/>
+                <p className='topText imgtext'>{currentMeme.topText.toUpperCase()}</p>
+                <p className='bottomText imgtext'>{currentMeme.bottomText.toUpperCase()}</p>
+            </div>
         </div>
     ) 
 }
