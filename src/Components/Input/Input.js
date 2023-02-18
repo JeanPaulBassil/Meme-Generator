@@ -1,6 +1,5 @@
 import './Input.css';
 import Button from '../Button/Button';
-import data from '../../memesData';
 import React from 'react';
 
 
@@ -10,15 +9,25 @@ export default function Input() {
         topText: "",
         bottomText: "",
         img: "https://i.imgflip.com/1bij.jpg"
-    }); 
+    });
+    
+    React.useEffect( _ => {
+        console.log("use ");
+        async function getMemes(){
+            const res = await fetch("https://api.imgflip.com/get_memes");
+            const data = await res.json();
+            setAllMemes(data.data.memes);
+        }
+        getMemes();
+    }, [])
 
-    console.log(currentMeme);
-    const [allMemeImages, setAllMemeImages] = React.useState(data.data.memes);
+    const [allMemes, setAllMemes] = React.useState([]);
 
+    console.log("rendered");
     function logRandMeme(event){
         const {name, value, type} = event.target;
         setCurrentMeme(prevCurrentMeme => {
-            const randMemeURL = allMemeImages[Math.floor(Math.random() * allMemeImages.length)]
+            const randMemeURL = allMemes[Math.floor(Math.random() * allMemes.length)]
             return {
                 ...prevCurrentMeme,
                 [name] : type === 'submit' ? randMemeURL.url : value
